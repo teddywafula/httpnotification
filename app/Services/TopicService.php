@@ -18,7 +18,9 @@ class TopicService implements TopicInterface
         // TODO: Implement saveTopicSubscribers() method.
         if(!empty($subscriberUrl)) {
             $subscriber = new Subscriber(['url' => $subscriberUrl]);
-            return $topicObject->subscribers()->save($subscriber);
+            $info =  $topicObject->subscribers()->save($subscriber);
+            $topicObject['url'] = $subscriberUrl;
+            return $topicObject;
         }
         return null;
 
@@ -47,13 +49,16 @@ class TopicService implements TopicInterface
         // TODO: Implement processWhenTopicExists() method.
         if(!empty($subscriberUrl)){
             $subscriberForTopicExists = \SubscriberFacade::subscriberForTopicExists($subscriberUrl,$topicId);
+            $topicData['url'] = $subscriberUrl;
             if(empty($subscriberForTopicExists)) {
-                return $this->saveTopicSubscribers($topicData, $subscriberUrl);
+                $this->saveTopicSubscribers($topicData, $subscriberUrl);
+                return $topicData;
             }
-            return $subscriberForTopicExists;
+            return $topicData;
         }
         return $topicData;
     }
+
     public function saveTopicAndSubscriber($topic, $subscriberUrl)
     {
         // TODO: Implement saveTopicAndSubscriber() method.

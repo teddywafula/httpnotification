@@ -56,7 +56,7 @@ class TopicTest extends TestCase
                 'Content-Type' => 'Application\json',
             ])->json('POST', '/api/subscribe/'.$topicName,['url'=>'http://localhost:9000/api/test2']);
 
-            $response->assertStatus(201);
+            $response->assertStatus(200);
         }
         $response = $this->withHeaders([
             'Content-Type' => 'Application\json',
@@ -84,7 +84,7 @@ class TopicTest extends TestCase
                 $response = $this->withHeaders([
                     'Content-Type' => 'Application\json',
                 ])->json('POST', '/api/subscribe/' . $topicName, ['url' => $subscriberUrl]);
-                $response->assertStatus(201);
+                $response->assertStatus(200);
             }
         }
 

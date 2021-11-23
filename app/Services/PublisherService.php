@@ -31,12 +31,14 @@ class PublisherService implements PublisherInterface
             Log::info("Status for ".$url. " is ".$response->status());
             $result['status'] = $response->status();
             $result['url'] = $url;
+
         }
         catch (\Exception $e)
         {
             Log::error("Error for ".$url." is ".$e->getMessage().". Error code is ".$e->getCode());
-            $result['status'] = $response->status();
+            $result['status'] = 500;
             $result['url'] = $url;
+            return $result;
         }
         return $result;
     }
