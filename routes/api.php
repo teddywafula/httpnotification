@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post("/publish/{topic}",[PublishMessageController::class,'publishMessage']);
+Route::post("/subscribe/{topic}",[ConsumeMessageController::class,'consumeMessage']);
+Route::post("/test1",[SubscriberController::class,'test1']);
+Route::post("/test2",[SubscriberController::class,'test2']);
