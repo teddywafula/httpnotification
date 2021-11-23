@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ConsumeMessageController;
+use App\Http\Controllers\PublishMessageController;
+use App\Http\Controllers\SubscriberController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
