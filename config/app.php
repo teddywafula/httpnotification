@@ -174,6 +174,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\TopicServiceProvider::class,
+        App\Providers\SubscriberServiceProvider::class,
+        App\Providers\PublisherServiceProvider::class,
 
     ],
 
@@ -229,6 +232,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'TopicFacade' => \App\Facades\TopicFacade::class,
+        'SubscriberFacade' => \App\Facades\SubscriberFacade::class,
+        'PublisherFacade' => \App\Facades\PublisherFacade::class,
 
     ],
 
